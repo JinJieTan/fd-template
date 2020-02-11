@@ -28,6 +28,8 @@ class App extends React.PureComponent<Props> {
                 >
                     增加数量
                 </Button>
+                <br />
+                <br />
                 <Button
                     onClick={() => {
                         const data = count - 1;
@@ -40,13 +42,15 @@ class App extends React.PureComponent<Props> {
                 >
                     减少数量
                 </Button>
-                <span>{count}</span>
+                <br />
+                <br />
+                <h1>{count}</h1>
                 <Button
                     onClick={() => {
-                        this.props.history.replace('/login');
+                        this.props.history.replace('/init');
                     }}
                 >
-                    返回登陆
+                    返回初始界面
                 </Button>
             </div>
         );

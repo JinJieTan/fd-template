@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Router } from 'dva/router';
 import Home from './routers/home';
-import Login from './routers/login';
+import Init from './routers/login';
 
 interface Props {
     history?: any;
@@ -15,10 +15,10 @@ export default class App extends React.PureComponent<Props> {
                 <Router history={this.props.history}>
                     <Switch>
                         <Route
-                            path="/login"
+                            path="/init"
                             render={() => {
                                 return (
-                                    <Login Name="fade_in" changeShowContent={() => {}} history={this.props.history} />
+                                    <Init Name="fade_in" changeShowContent={() => {}} history={this.props.history} />
                                 );
                             }}
                         ></Route>
@@ -32,7 +32,7 @@ export default class App extends React.PureComponent<Props> {
                             path="/"
                             render={() => {
                                 return (
-                                    <Login Name="fade_in" changeShowContent={() => {}} history={this.props.history} />
+                                    <Init Name="fade_in" changeShowContent={() => {}} history={this.props.history} />
                                 );
                             }}
                         ></Route>
