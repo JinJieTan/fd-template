@@ -1,0 +1,74 @@
+.container {
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    .login {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 97px 120px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: all 0.2s;
+        user-select: none;
+        .login_title {
+            height: 40px;
+            font-size: 28px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: rgba(49, 50, 51, 1);
+            line-height: 40px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            .remeber_password {
+                background-color: white;
+                color: #1890ff;
+                margin-right: 6px;
+            }
+            .not_remeber_password {
+                margin-right: 6px;
+            }
+            .options-left-container {
+                height: 18px;
+                font-size: 14px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: rgba(99, 100, 102, 1);
+                line-height: 18px;
+                cursor: pointer;
+            }
+            .options-right-container {
+                height: 18px;
+                font-size: 14px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: rgba(36, 139, 242, 1);
+                line-height: 18px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .login_fade_out {
+        transform: translateX(-150px);
+        opacity: 0;
+        transition: all 0s ease-out;
+    }
+
+    .login_fade_in {
+        transform: translateX(0px);
+        opacity: 1;
+        transition: all 0.2s ease-out;
+    }
+}
