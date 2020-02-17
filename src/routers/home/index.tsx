@@ -44,7 +44,7 @@ class App extends React.PureComponent<Props> {
                 </Button>
                 <br />
                 <br />
-                <h1>{count}</h1>
+                <h1 className='count'>{count}</h1>
                 <Button
                     onClick={() => {
                         this.props.history.replace('/init');
