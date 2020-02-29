@@ -8,7 +8,7 @@ const dev_config = {
     devServer: {
         contentBase: '.',
         open: true,
-        port: 7777,
+        port: 8008,
         hot: true,
         proxy: {
             '/api': {
@@ -21,7 +21,10 @@ const dev_config = {
         },
         disableHostCheck: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin(), new BundleAnalyzerPlugin()],
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        //  new BundleAnalyzerPlugin()
+    ],
 };
 
 module.exports = merge([base_config, dev_config]);

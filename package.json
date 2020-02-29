@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.config.js --mode development",
-    "build": "yarn  && yarn test && webpack --config config/webpack.prod.config.js --mode production",
+    "build": "yarn  && webpack --config config/webpack.prod.config.js --mode production",
     "test": "jest",
     "test-c": "jest --coverage"
   },
