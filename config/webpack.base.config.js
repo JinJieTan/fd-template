@@ -2,6 +2,7 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const hardSourcePlugin = require('hard-source-webpack-plugin');
 const webpack = require('webpack');
+
 module.exports = {
     entry: {
         app: path.resolve(__dirname, '../src/index.tsx'),
