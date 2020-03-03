@@ -9,7 +9,7 @@ interface Props {
     dispatch?: any;
 }
 export default class App extends React.PureComponent<Props> {
-    render() {
+    public render() {
         return (
             <div>
                 <Router history={this.props.history}>

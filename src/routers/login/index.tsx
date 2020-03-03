@@ -12,12 +12,12 @@ class App extends React.PureComponent<Props> {
         super(props);
     }
 
-    //登录获取所有的数据,校验通过后才发送请求
-    login = () => {
+    // 登录获取所有的数据,校验通过后才发送请求
+    public login = () => {
         this.props.history.push('/home');
     };
 
-    render() {
+    public render() {
         return (
             <div className="container">
                 <div className={'login login_fade_in'}>

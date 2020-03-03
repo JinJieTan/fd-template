@@ -6,13 +6,13 @@ interface Props {
     history: any;
     readonly count: number;
     dispatch: Function;
-    list: Array<string>;
+    list: string[];
 }
 class App extends React.PureComponent<Props> {
-    componentDidMount() {
+    public componentDidMount() {
         console.log(this.props);
     }
-    render() {
+    public render() {
         const { count } = this.props;
         return (
             <div className="home_container">
@@ -44,7 +44,7 @@ class App extends React.PureComponent<Props> {
                 </Button>
                 <br />
                 <br />
-                <h1 className='count'>{count}</h1>
+                <h1 className="count">{count}</h1>
                 <Button
                     onClick={() => {
                         this.props.history.replace('/init');
