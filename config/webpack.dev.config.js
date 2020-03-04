@@ -8,7 +8,7 @@ const dev_config = {
     devServer: {
         contentBase: '.',
         open: true,
-        port: 7765,
+        port: 7454,
         hot: true,
         proxy: {
             '/api': {
