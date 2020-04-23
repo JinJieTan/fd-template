@@ -32,6 +32,7 @@ module.exports = {
                                             'import',
                                             {
                                                 libraryName: 'antd',
+                                                libraryDirectory: 'es',
                                                 style: true, // or 'css'
                                             },
                                         ],
@@ -49,6 +50,9 @@ module.exports = {
                             { loader: 'style-loader' },
                             {
                                 loader: 'css-loader',
+                                options: {
+                                    importLoaders: 1,
+                                },
                             },
                             {
                                 loader: 'less-loader',
