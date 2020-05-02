@@ -7,7 +7,9 @@
     "dev": "webpack-dev-server --config config/webpack.dev.config.js --mode development",
     "build": "yarn  && webpack --config config/webpack.prod.config.js --mode production",
     "test": "jest",
-    "test-c": "jest --coverage"
+    "test-c": "jest --coverage",
+    "doc:server": "styleguidist server",
+    "doc:build": "styleguidist build"
   },
   "keywords": [],
   "author": "谭金杰 <tanjj02@mingyuanyun.com>",
@@ -72,6 +74,7 @@
     "postcss-nested": "^4.2.1",
     "precss": "^4.0.0",
     "prettier": "^1.19.1",
+    "react-styleguidist": "^11.0.5",
     "react-test-renderer": "^16.12.0",
     "redbox-react": "1.x",
     "style-loader": "^1.0.1",
