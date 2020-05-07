@@ -4,7 +4,8 @@
     "description": "typescript-cli",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server --config config/webpack.dev.config.js --mode development",
+        "prewatch": "rimraf ./node_modules/.cache",
+        "dev": "yarn prewatch && webpack-dev-server --config config/webpack.dev.config.js --mode development",
         "build": "yarn  && webpack --config config/webpack.prod.config.js --mode production",
         "test": "jest",
         "test-c": "jest --coverage",
