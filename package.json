@@ -16,7 +16,7 @@
     "author": "谭金杰 <tanjj02@mingyuanyun.com>",
     "license": "ISC",
     "dependencies": {
-        "antd": "4.0.0",
+        "antd": "4.2.0",
         "axios": "^0.19.0",
         "dva": "^2.4.1",
         "react": "^16.12.0",
@@ -25,6 +25,7 @@
     "devDependencies": {
         "@babel/core": "^7.7.4",
         "@babel/plugin-transform-runtime": "^7.8.3",
+        "@babel/polyfill": "^7.8.7",
         "@babel/preset-env": "^7.7.6",
         "@babel/preset-react": "^7.7.4",
         "@babel/preset-typescript": "^7.7.4",
