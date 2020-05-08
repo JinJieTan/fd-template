@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const hardSourcePlugin = require('hard-source-webpack-plugin');
 const webpack = require('webpack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-// const antOverride = require('../src/vendor/antd');
+const antOverride = require('../src/vendor/antd');
 
 module.exports = {
     entry: {
@@ -39,6 +39,7 @@ module.exports = {
                                     ],
                                     cacheDirectory: true,
                                     plugins: [
+                                        'lodash',
                                         '@babel/plugin-transform-runtime',
                                         //支持import 懒加载
                                         '@babel/plugin-syntax-dynamic-import',
@@ -84,7 +85,7 @@ module.exports = {
                                 loader: 'less-loader',
                                 options: {
                                     javascriptEnabled: true,
-                                    // modifyVars: antOverride,
+                                    modifyVars: antOverride,
                                 },
                             },
                         ],
@@ -114,7 +115,7 @@ module.exports = {
         }),
         new hardSourcePlugin(),
         new webpack.NamedModulesPlugin(),
-        new LodashModuleReplacementPlugin(),
+        new LodashModuleReplacementPlugin({ shorthands: true }),
     ],
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],

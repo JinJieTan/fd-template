@@ -9,7 +9,7 @@ interface Props {
     isNormal?: boolean;
 }
 
-class App extends React.PureComponent<Props> {
+export default class App extends React.PureComponent<Props> {
     public render() {
         const { text, onClick, isNormal } = this.props;
         return (
@@ -18,8 +18,4 @@ class App extends React.PureComponent<Props> {
             </div>
         );
     }
-}
-
-export default function Button(props: Props) {
-    return <App {...props} />;
 }
