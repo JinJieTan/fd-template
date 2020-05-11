@@ -1,5 +1,5 @@
 Button 示例:
 
 ```js
-<button>测试</button>
+<Button text="测试">测试</Button>
 ```
