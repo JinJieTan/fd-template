@@ -2,13 +2,13 @@ import React from 'react';
 import { Route, Switch, Router } from 'dva/router';
 import Home from './routers/home';
 import Init from './routers/login';
-
+import { hot } from 'react-hot-loader/root';
 interface Props {
     history?: any;
     getState?: any;
     dispatch?: any;
 }
-export default class App extends React.PureComponent<Props> {
+class App extends React.PureComponent<Props> {
     public render() {
         return (
             <div>
@@ -42,3 +42,4 @@ export default class App extends React.PureComponent<Props> {
         );
     }
 }
+export default hot(App);

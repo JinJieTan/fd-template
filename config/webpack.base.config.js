@@ -7,7 +7,7 @@ const antOverride = require('../src/vendor/antd');
 
 module.exports = {
     entry: {
-        app: ['@babel/polyfill', path.resolve(__dirname, '../src/index.tsx')],
+        app: ['react-hot-loader/patch', '@babel/polyfill', path.resolve(__dirname, '../src/index.tsx')],
         vendor: ['react', 'react-dom'],
     },
     output: {
@@ -39,6 +39,7 @@ module.exports = {
                                     ],
                                     cacheDirectory: true,
                                     plugins: [
+                                        'react-hot-loader/babel',
                                         'lodash',
                                         '@babel/plugin-transform-runtime',
                                         //支持import 懒加载
