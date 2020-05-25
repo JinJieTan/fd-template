@@ -3,12 +3,10 @@ import { Route, Switch, Router } from 'dva/router';
 import Home from './routers/home';
 import Init from './routers/login';
 import { hot } from 'react-hot-loader/root';
-interface Props {
-    history?: any;
-    getState?: any;
-    dispatch?: any;
-}
-class App extends React.PureComponent<Props> {
+import { RouteComponentProps } from 'dva/router';
+import { SubscriptionAPI } from 'dva';
+interface Props extends RouteComponentProps {}
+class App extends React.PureComponent<Props & SubscriptionAPI> {
     public render() {
         return (
             <div>
