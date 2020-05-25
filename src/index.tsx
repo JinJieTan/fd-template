@@ -6,6 +6,7 @@ import model1 from './model/count';
 import model2 from './model/list';
 import './assets/init/normalize.css';
 import { AppContainer, setConfig } from 'react-hot-loader';
+
 setConfig({
     ignoreSFC: true,
     //@ts-ignore
