@@ -7,7 +7,7 @@ const antOverride = require('../src/vendor/antd');
 
 module.exports = {
     entry: {
-        app: ['react-hot-loader/patch', '@babel/polyfill', path.resolve(__dirname, '../src/index.tsx')],
+        app: ['@babel/polyfill', 'react-hot-loader/patch', path.resolve(__dirname, '../src/index.tsx')],
         vendor: ['react', 'react-dom'],
     },
     output: {
