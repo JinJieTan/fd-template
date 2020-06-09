@@ -3,12 +3,10 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const hardSourcePlugin = require('hard-source-webpack-plugin');
 const webpack = require('webpack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-const antOverride = require('../src/vendor/antd');
 
 module.exports = {
     entry: {
         app: ['@babel/polyfill', 'react-hot-loader/patch', path.resolve(__dirname, '../src/index.tsx')],
-        vendor: ['react', 'react-dom'],
     },
     output: {
         filename: '[name].[hash:8].js',
@@ -39,12 +37,10 @@ module.exports = {
                                     ],
                                     cacheDirectory: true,
                                     plugins: [
-                                        'react-hot-loader/babel',
                                         'lodash',
                                         '@babel/plugin-transform-runtime',
                                         //支持import 懒加载
                                         '@babel/plugin-syntax-dynamic-import',
-                                        'dva-hmr',
                                         [
                                             'import',
                                             {
@@ -53,6 +49,7 @@ module.exports = {
                                                 style: true, // or 'css'
                                             },
                                         ],
+                                        'react-hot-loader/babel',
                                     ],
                                 },
                             },
@@ -86,21 +83,20 @@ module.exports = {
                                 loader: 'less-loader',
                                 options: {
                                     javascriptEnabled: true,
-                                    modifyVars: antOverride,
+                                    // modifyVars: antOverride,
                                 },
                             },
                         ],
                     },
                     {
-                        test: /\.(png|jpg|jpeg|gif)$/,
+                        test: /\.(png|jpg|jpeg|gif|svg)$/,
                         use: [
                             {
                                 loader: 'url-loader',
                                 options: {
                                     limit: 1024 * 1,
-                                    outputPath: './asset/images',
+                                    outputPath: '/',
                                     name: '[name].[hash:5].[ext]',
-                                    pulbicPath: './dist/asset/images',
                                 },
                             },
                         ],
@@ -112,9 +108,9 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
-            favicon: path.resolve(__dirname, '../src/assets/img/favicon.ico'),
+            // favicon: path.resolve(__dirname, '../src/assets/img/favicon.ico'),
         }),
-        new hardSourcePlugin(),
+        // new hardSourcePlugin(),
         new webpack.NamedModulesPlugin(),
         new LodashModuleReplacementPlugin({ shorthands: true }),
     ],
@@ -125,6 +121,8 @@ module.exports = {
             '@c': path.resolve(__dirname, '../src/components'),
             '@m': path.resolve(__dirname, '../src/model'),
             '@s': path.resolve(__dirname, '../src/services'),
+            '@t': path.resolve(__dirname, '../src/types'),
+            'react-dom': '@hot-loader/react-dom',
         },
     },
     optimization: {

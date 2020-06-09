@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "prewatch": "rimraf ./node_modules/.cache",
-        "dev": "yarn prewatch && webpack-dev-server --config config/webpack.dev.config.js --mode development",
+        "dev": "yarn prewatch && webpack-dev-server --hot --config config/webpack.dev.config.js --mode development",
         "build": "yarn  && webpack --config config/webpack.prod.config.js --mode production",
         "test": "jest",
         "test-c": "jest --coverage",
@@ -29,6 +29,7 @@
         "@babel/preset-env": "^7.7.6",
         "@babel/preset-react": "^7.7.4",
         "@babel/preset-typescript": "^7.7.4",
+        "@hot-loader/react-dom": "16.12.0",
         "@types/dva": "^1.1.0",
         "@types/enzyme": "^3.10.4",
         "@types/enzyme-adapter-react-16": "^1.0.5",

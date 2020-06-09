@@ -8,10 +8,7 @@ interface Props {
     dispatch: Function;
     list: string[];
 }
-class App extends React.PureComponent<Props> {
-    public componentDidMount() {
-        console.log(this.props);
-    }
+class App extends React.Component<Props> {
     public render() {
         const { count } = this.props;
         return (
