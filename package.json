@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "prewatch": "rimraf ./node_modules/.cache",
-        "dev": "yarn prewatch && webpack-dev-server --hot --config config/webpack.dev.config.js --mode development",
+        "dev": "yarn prewatch && webpack-dev-server --hot --inline --config config/webpack.dev.config.js --mode development",
         "build": "yarn  && webpack --config config/webpack.prod.config.js --mode production",
         "test": "jest",
         "test-c": "jest --coverage",

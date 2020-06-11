@@ -27,18 +27,23 @@ app.model(model2);
 function renderWithHotReload(C: any) {
     app.router((obj: any) => (
         <ConfigProvider locale={zhCN}>
-            <AppContainer>
-                <C
-                    history={obj.history}
-                    match={obj.match}
-                    location={obj.location}
-                    getState={obj.app._store.getState}
-                    dispatch={obj.app._store.dispatch}
-                />
-            </AppContainer>
+            <C
+                history={obj.history}
+                match={obj.match}
+                location={obj.location}
+                getState={obj.app._store.getState}
+                dispatch={obj.app._store.dispatch}
+            />
         </ConfigProvider>
     ));
     app.start('#root');
 }
 
 renderWithHotReload(App);
+//@ts-ignore
+if (module.hot) {
+    //@ts-ignore
+    module.hot.accept(() => {
+        renderWithHotReload(App);
+    });
+}

@@ -45,7 +45,6 @@ class App extends React.Component<Props> {
                 <Button
                     onClick={() => {
                         this.props.history.replace('/init');
-                        // window.location.href = 'http://www.baidu.com';
                     }}
                 >
                     返回初始界面

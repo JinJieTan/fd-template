@@ -24,6 +24,7 @@ const dev_config = {
         //     },
         // },
         disableHostCheck: true,
+        inline:true
     },
     plugins: [
         // new webpack.HotModuleReplacementPlugin(),
