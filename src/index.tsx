@@ -40,4 +40,5 @@ function renderWithHotReload(C: any) {
     ));
     app.start('#root');
 }
+
 renderWithHotReload(App);
