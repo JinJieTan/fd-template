@@ -40,10 +40,3 @@ function renderWithHotReload(C: any) {
 }
 
 renderWithHotReload(App);
-//@ts-ignore
-if (module.hot) {
-    //@ts-ignore
-    module.hot.accept(() => {
-        renderWithHotReload(App);
-    });
-}
