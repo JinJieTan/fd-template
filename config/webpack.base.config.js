@@ -25,36 +25,8 @@ module.exports = {
                                 options: {
                                     exclude: ['node_modules'],
                                     //jsx语法
-                                    presets: [
-                                        [
-                                            '@babel/preset-env',
-                                            {
-                                                modules: false,
-                                                useBuiltIns: 'entry',
-                                                corejs: 2, // 这里需要注意：是根据你的版本来写
-                                            },
-                                        ],
-                                    ],
                                     cacheDirectory: true,
-                                    plugins: [
-                                        'lodash',
-                                        '@babel/plugin-transform-runtime',
-                                        //支持import 懒加载
-                                        '@babel/plugin-syntax-dynamic-import',
-                                        [
-                                            'import',
-                                            {
-                                                libraryName: 'antd',
-                                                libraryDirectory: 'es',
-                                                style: true, // or 'css'
-                                            },
-                                        ],
-                                        'react-hot-loader/babel',
-                                    ],
                                 },
-                            },
-                            {
-                                loader: 'awesome-typescript-loader',
                             },
                             {
                                 loader: 'thread-loader',
