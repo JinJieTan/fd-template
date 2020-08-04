@@ -1,301 +1,88 @@
-/**
- * 部分 rules 可以通过命令行中的 `--fix` 选项或者部分编辑器 `autofixed` 功能自动修复
- *
- *------------------------------------------
- *
- * 依赖
- * eslint-plugin-vue
- * eslint-plugin-html
- * eslint-plugin-react
- * eslint-plugin-import
- * eslint-config-airbnb-base
- * eslint-import-resolver-webpack
- *
- * eslint-config-airbnb
- * eslint-plugin-react
- * eslint-plugin-import
- * eslint-plugin-jsx-a11y
- */
-
- const path = require('path');
-
- module.exports = {
-     'root': true,
-     'parserOptions': {
-         'parser': 'babel-eslint',
-         'ecmaVersion': 6,
-         'sourceType': 'module',
-         'ecmaFeatures': {
-             'jsx': true,
-         }
-     },
-     'env': {
-         'browser': true,
-         "node": true,
-         'es6': true,
-     },
-     'plugins': [
-         "jsx-a11y",
-         "react",
-         "import"
-     ],
-     'extends': [
-         'airbnb',
-     ],
-     'settings': {
-         'import/resolver': {
-             // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers/webpack
-             // 也可以读取 webpack 配置文件中的配置
-             // 'webpack': {
-             //   'config': 'webpack.config.js'
-             // },
-             'webpack': {
-                 config: {
-                     resolve: {
-                         'extensions': ['.js', '.vue', '.jsx'],
-                         'alias': {
-                             '@': path.join(__dirname, 'src'),
-                             'redux-api-middleware': path.resolve('./src/middleware/api-middleware')
-                         }
-                     }
-                 }
-             },
-         },
-         "html/html-extensions": [".html"],
-         "react": {
-             "createClass": "createReactClass",
-             "pragma": "React",
-             "version": "0.14"
-         }
-     },
-     'rules': {
-         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-         'no-alert': 'warn',
-         'camelcase': 'error',
-         'no-var': 'warn',
-         'import/extensions': ['error', 'always', {
-             'js': 'never',
-             'vue': 'never',
-             'jsx': 'never',
-         }],
-         'import/prefer-default-export':'off',
-         'import/no-dynamic-require':'off',
-         'react/prop-types':'off',
-         'react/no-find-dom-node':'off',
-         'react/jsx-filename-extension':'off',
-         "react/jsx-indent-props": ['error', 'tab'| '4'],
-         "react/jsx-indent": ['error', 'tab'| '4'],
-         "react/jsx-max-props-per-line": [1, { "when": "multiline" }],
-         "react/jsx-no-bind": ['off'],
-         "jsx-a11y/no-static-element-interactions":["off"],
-         "jsx-a11y/label-has-for":["off"],
-         "jsx-a11y/no-noninteractive-element-interactions":["off"],
-         "react/sort-comp": ['error', {
-             order:[
-                 'static-methods',
-                 'lifecycle',
-                 'render',
-                 'everything-else'
-             ]}],
-         'import/no-named-as-default':'off',
-         'import/first':'off',
-         'import/no-extraneous-dependencies':'off',
-         'global-require':'off',
-         'no-implicit-coercion': 'off',
-         'comma-dangle': 'off',
-         'no-mixed-operators': ['error', {
-             groups: [
-                 ['+', '-', '*', '/', '%', '**'],
-                 ['&', '|', '^', '~', '<<', '>>', '>>>'],
-                 ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
-                 ['&&', '||'],
-                 ['in', 'instanceof']
-             ],
-             allowSamePrecedence: true
-         }],
-         'no-nested-ternary': 'off',
-         'require-yield':'off',
-         'max-len': 'off',
-         'no-bitwise': 'off',
-         'no-continue': 'off',
-         'no-plusplus': 'off',
-         'no-underscore-dangle': 'off',
-         'semi': 'off',
-         'no-new': 'off',
-         'no-param-reassign': 'off',
-         'no-useless-escape': 'warn',
-         'no-multiple-empty-lines': 'off',
-         "no-unused-expressions":["error",{"allowShortCircuit": true, "allowTernary": true}],
-         'no-multi-spaces': 'off',
-         'no-script-url': 'warn',
-         'no-void': 'warn',
-         'newline-per-chained-call': 'off',
-         'spaced-comment': 'off',
-         'array-callback-return': 'error',
-         'block-scoped-var': 'warn',
-         'consistent-return': 'error',
-         'curly': ['warn', 'multi-line'],
-         'default-case': ['error', {commentPattern: '^no default$'}],
-         'dot-notation': ['error', {allowKeywords: true}],
-         'eqeqeq': ['warn', 'always'],
-         'guard-for-in': 'error',
-         'no-case-declarations': 'error',
-         'no-else-return': 'error',
-         'no-empty-function': 'error',
-         'no-extend-native': 'warn',
-         'no-floating-decimal': 'warn',
-         'no-lone-blocks': 'error',
-         'no-loop-func': 'warn',
-         'no-multi-str': 'warn',
-         'no-new-func': 'error',
-         'no-new-wrappers': 'error',
-         'no-redeclare': 'error',
-         'no-restricted-syntax': 'off',
-         'no-return-assign': ['error', 'always'],
-         'no-sequences': 'error',
-         'no-useless-concat': 'error',
-         'radix': 'error',
-         'vars-on-top': 'error',
-         'wrap-iife': ['error', 'outside', {functionPrototypeMethods: false}],
-         'yoda': 'warn',
-         'no-cond-assign': ['error', 'always'],
-         'no-constant-condition': 'warn',
-         'no-dupe-args': 'error',
-         'no-empty': 'error',
-         'no-empty-character-class': 'error',
-         'no-extra-semi': 'warn',
-         'no-func-assign': 'error',
-         'no-inner-declarations': 'error',
-         'no-irregular-whitespace': 'warn',
-         'no-prototype-builtins': 'error',
-         'no-unreachable': 'error',
-         'use-isnan': 'error',
-         'valid-typeof': ['error', {requireStringLiterals: true}],
-         'arrow-body-style': ['warn', 'as-needed', {
-             requireReturnForObjectLiteral: false,
-         }],
-         "arrow-parens":["off"],
-         'arrow-spacing': ['error', {before: true, after: true}],
-         'constructor-super': 'error',
-         //不允许修改类声明的变量
-         'no-class-assign': 'error',
-         'no-dupe-class-members': 'error',
-         'no-this-before-super': 'error',
-         'no-useless-constructor': 'error',
-         'object-shorthand': ['error', 'always', {
-             ignoreConstructors: false,
-             avoidQuotes: true,
-         }],
-         'prefer-arrow-callback': ['error', {
-             allowNamedFunctions: false,
-             allowUnboundThis: true,
-         }],
-         'prefer-const': ['error', {
-             destructuring: 'any',
-             ignoreReadBeforeAssign: true,
-         }],
-         'prefer-spread': 'warn',
-         'prefer-template': 'error',
-         'template-curly-spacing': 'error',
-         'array-bracket-spacing': ['error', 'never'],
-         'block-spacing': ['error', 'always'],
-         'brace-style': ['error', '1tbs', {
-             allowSingleLine: true
-         }],
-         'comma-spacing': ['error', {before: false, after: true}],
-         'eol-last': ['error', 'always'],
-         'func-names': 'off',
-         'indent': ['error', 4, {
-             SwitchCase: 1,
-             VariableDeclarator: 1,
-             outerIIFEBody: 1,
-             FunctionDeclaration: {
-                 parameters: 1,
-                 body: 1
-             },
-             FunctionExpression: {
-                 parameters: 1,
-                 body: 1
-             }
-         }],
-         'key-spacing': ['error', {
-             beforeColon: false,
-             afterColon: true
-         }],
-         'keyword-spacing': ['error', {
-             before: true,
-             after: true,
-             overrides: {
-                 return: {after: true},
-                 throw: {after: true},
-                 case: {after: true}
-             }
-         }],
-         'linebreak-style': ['off', 'unix'],
-         'lines-around-directive': ['error', {
-             before: 'always',
-             after: 'always',
-         }],
-         'new-cap': ['error', {
-             newIsCap: true,
-             newIsCapExceptions: [],
-             capIsNew: false,
-             capIsNewExceptions: ['Immutable.Map', 'Immutable.Set', 'Immutable.List'],
-         }],
-         'no-shadow': ["off", { "hoist": "functions" }],
-         'no-array-constructor': 'error',
-         'no-lonely-if': 'warn',
-         'no-mixed-spaces-and-tabs': 'error',
-         'no-multi-assign': ['error'],
-         'no-new-object': 'error',
-         'no-tabs': 'error',
-         'no-trailing-spaces': 'error',
-         'no-unneeded-ternary': ['error', {
-             defaultAssignment: false
-         }],
-         'object-curly-spacing': ['error', 'always'],
-         'object-property-newline': ['error', {
-             allowMultiplePropertiesPerLine: true,
-         }],
-         'one-var': ['warn', 'never'],
-         'one-var-declaration-per-line': ['off', 'always'],
-         'operator-assignment': ['error', 'always'],
-         'padded-blocks': ['warn', 'never'],
-         'quote-props': ['warn', 'as-needed', {
-             keywords: false,
-             unnecessary: true,
-             numbers: false
-         }],
-         'quotes': ['error', 'single', {
-             avoidEscape: true
-         }],
-         'semi-spacing': ['error', {before: false, after: true}],
-         'space-before-blocks': 'error',
-         'space-before-function-paren': ['error', {
-             anonymous: 'always',
-             named: 'never',
-             asyncArrow: 'always'
-         }],
-         'space-in-parens': ['error', 'never'],
-         'space-infix-ops': 'error',
-         'space-unary-ops': ['error', {
-             words: true,
-             nonwords: false,
-             overrides: {},
-         }],
-         'no-undef': 'error',
-         'no-undef-init': 'error',
-         'no-unused-vars': ['error', {
-             vars: 'all',
-             args: 'after-used',
-             ignoreRestSiblings: true
-         }],
-         'no-use-before-define': ['error', {
-             functions: true,
-             classes: true,
-             variables: true
-         }]
-     }
- }
- 
+module.exports = {
+    root: true,
+    parserOptions: {
+        ecmaVersion: 7,
+        sourceType: 'module',
+    },
+    parser: '@typescript-eslint/parser',
+    plugins: ['typescript', 'react'],
+    env: {
+        browser: true,
+        node: true,
+        es6: true,
+    },
+    rules: {
+        semi: ['error', 'always'], // 该规则强制使用一致的分号
+        'no-unused-vars': 'off', // 禁止未使用过的变量
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off', //生产环境禁用 debugger
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off', //生产环境禁用 console
+        'default-case': ['warn', { commentPattern: '^no default$' }], //要求 Switch 语句中有 Default
+        'dot-location': ['warn', 'property'], // 强制在点号之前或之后换行
+        eqeqeq: ['error', 'allow-null'], //要求使用 === 和 !==
+        'new-parens': 'warn', //要求调用无参构造函数时带括号
+        'no-caller': 'error', // 禁用 caller 或 callee
+        'no-const-assign': 'error', //不允许改变用 const 声明的变量
+        'no-dupe-args': 'error', //禁止在 function 定义中出现重复的参数
+        'no-dupe-class-members': 'error', //不允许类成员中有重复的名称
+        'no-dupe-keys': 'warn', //禁止在对象字面量中出现重复的键
+        'no-extend-native': 'warn', //禁止扩展原生对象
+        'no-extra-bind': 'warn', //禁止不必要的函数绑定
+        'no-fallthrough': 'error', //禁止 case 语句落空
+        'no-func-assign': 'warn', //禁止对 function 声明重新赋值
+        'no-implied-eval': 'error', //禁用隐式的 eval()
+        'no-label-var': 'error', //禁用与变量同名的标签
+        'no-loop-func': 'error', //禁止循环中存在函数
+        'no-mixed-operators': [
+            'warn',
+            {
+                groups: [
+                    ['&', '|', '^', '~', '<<', '>>', '>>>'],
+                    ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+                    ['&&', '||'],
+                    ['in', 'instanceof'],
+                ],
+                allowSamePrecedence: false,
+            },
+        ], //禁止混合使用不同的操作符
+        'no-multi-str': 'warn', //禁止多行字符串 (需要多行时用\n)
+        'no-native-reassign': 'warn', //禁止重新分配本地对象
+        'no-obj-calls': 'warn', //禁止将全局对象当作函数进行调用
+        'no-redeclare': 'error', //禁止重新声明变量
+        'no-script-url': 'warn', //禁用 Script URL
+        'no-shadow-restricted-names': 'warn', //关键字不能被遮蔽
+        'no-sparse-arrays': 'warn', //禁用稀疏数组
+        'no-this-before-super': 'warn', //在构造函数中禁止在调用 super()之前使用 this 或 super
+        'no-undef': 'error', //禁用未声明的变量
+        'no-unexpected-multiline': 'warn', //禁止使用令人困惑的多行表达式
+        'no-use-before-define': [
+            'warn',
+            {
+                functions: false,
+                classes: false,
+                variables: false,
+            },
+        ], //禁止定义前使用
+        'no-with': 'error', //禁用 with 语句
+        radix: 'error', //禁用函数内没有 yield 的 generator 函数
+        'rest-spread-spacing': ['warn', 'never'], //强制限制扩展运算符及其表达式之间的空格
+        'react/jsx-no-undef': 'error', //在 JSX 中禁止未声明的变量
+        'react/no-direct-mutation-state': 'error', //禁止 this.state 的直接变化
+        'react/jsx-uses-react': 'warn', //防止 React 被错误地标记为未使用
+        'no-alert': 0, //禁止使用alert confirm prompt
+        'no-duplicate-case': 2, //switch中的case标签不能重复
+        'no-eq-null': 2, //禁止对null使用==或!=运算符
+        'no-inner-declarations': [2, 'functions'], //禁止在块语句中使用声明（变量或函数）
+        'no-iterator': 2, //禁止使用__iterator__ 属性
+        'no-negated-in-lhs': 2, //in 操作符的左边不能有!
+        'no-octal-escape': 2, //禁止使用八进制转义序列
+        'no-plusplus': 0, //禁止使用++，--
+        'no-self-compare': 2, //不能比较自身
+        'no-undef-init': 2, //变量初始化时不能直接给它赋值为undefined
+        'no-unused-expressions': 2, //禁止无用的表达式
+        'no-useless-call': 2, //禁止不必要的call和apply
+        'init-declarations': 0, //声明时必须赋初值
+        'prefer-const': 0, //首选const
+        'use-isnan': 2, //禁止比较时使用NaN，只能用isNaN()
+        'vars-on-top': 2, //var必须放在作用域顶部
+    },
+};
